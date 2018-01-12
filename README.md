@@ -36,7 +36,7 @@ See benchmark result of the same "blog" example:
 ## Usage
 - hello.lua
 ```Lua
-local app = require("./luz/app").app:new()
+local app = require("./lux/app").app:new()
 
 app:get('/', function()
 	return "hello"
