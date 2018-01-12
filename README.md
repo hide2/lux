@@ -44,10 +44,9 @@ Run:
 ## Benchmark
 
 ## Modules
-- LuaRocks
 - Routing
 - JSON
-- Database:SQLite/MySQL/PostgreSQL/Redis
+- Database
 - Model
 - View
 - Controller
@@ -60,5 +59,6 @@ Run:
 - Logging
 - i18n
 - Scaffolding
+- LuaRocks
 - doc
 - demo
