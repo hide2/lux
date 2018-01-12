@@ -1,1 +1,1 @@
-# lux
+# lux - Building blazing fast Web application
