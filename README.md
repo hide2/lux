@@ -26,6 +26,20 @@ See benchmark result of the same "blog" example:
     luarocks install rapidjson
 
 ## Usage
+- hello.lua
+```Lua
+local app = require("./luz/app").app:new()
+
+app:get('/', function()
+	return "hello"
+end)
+app:listen({port=8001})
+
+print("Http Server listening at http://0.0.0.0:8001/")
+```
+Run:
+
+    luvit hello.lua
 
 ## Benchmark
 
