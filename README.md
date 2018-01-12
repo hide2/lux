@@ -21,9 +21,17 @@ See benchmark result of the same "blog" example:
 
     ./configure; make bootstrap
 
-- Install rapidjson
+- Install rapidjson(optional)
 
     luarocks install rapidjson
+
+- Install luasql(optional)
+
+    luarocks install luasql-sqlite3
+
+    luarocks install luasql-postgres
+
+    luarocks install luasql-mysql
 
 ## Usage
 - hello.lua
