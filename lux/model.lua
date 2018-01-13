@@ -21,9 +21,12 @@ function Model:save(row)
 	end
 	local sql = string.format("insert into %s(%s) values(%s)", self.table, table.concat(ks, ','), table.concat(vs, ','))
 	p("[sql]", sql)
-	self.db:run(sql)
+	return self.db:run(sql)
 end
 function Model:all()
+	local sql = string.format("select * from %s", self.table)
+	p("[sql]", sql)
+	return self.db:select(sql, true)
 end
 function Model:find_by()
 end
