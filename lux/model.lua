@@ -33,12 +33,12 @@ function Model:find(id)
 	p("[sql]", sql)
 	return self.db:select(sql, true)
 end
-function Model:where(kv)
-	local kvs = {}
-	for k, v in pairs(kv) do
-		table.insert(kvs, k.."='"..v.."'")
+function Model:where(wkv)
+	local wkvs = {}
+	for k, v in pairs(wkv) do
+		table.insert(wkvs, k.."='"..v.."'")
 	end
-	local sql = string.format("select * from %s where %s", self.table, table.concat(kvs, ' and '))
+	local sql = string.format("select * from %s where %s", self.table, table.concat(wkvs, ' and '))
 	p("[sql]", sql)
 	return self.db:select(sql, true)
 end
@@ -55,7 +55,14 @@ function Model:update(kv, wkv)
 	p("[sql]", sql)
 	return self.db:run(sql)
 end
-function Model:destroy()
+function Model:destroy(wkv)
+	local wkvs = {}
+	for k, v in pairs(wkv) do
+		table.insert(wkvs, k.."='"..v.."'")
+	end
+	local sql = string.format("delete from %s where %s", self.table, table.concat(wkvs, ' and '))
+	p("[sql]", sql)
+	return self.db:run(sql)
 end
 
 return {

@@ -43,3 +43,8 @@ print("------------------------ User:update({name='Jack2'},{email='maria@dores.c
 p(User:update({name='Jack2'},{email='maria@dores.com'}))
 print("------------------------ User:where({name='Jack2'})")
 p(User:where({name='Jack2'}))
+
+print("------------------------ User:detroy({name='Jack2'})")
+p(User:detroy({name='Jack2'}))
+print("------------------------ User:all")
+p(User:all())
