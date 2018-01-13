@@ -35,7 +35,7 @@ function Model:find(kv)
 	end
 	local sql = string.format("select * from %s where %s", self.table, table.concat(kvs, ' and '))
 	p("[sql]", sql)
-	return self.db:run(sql)
+	return self.db:select(sql)
 end
 function Model:where()
 end
