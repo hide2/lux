@@ -28,7 +28,14 @@ function Model:all()
 	p("[sql]", sql)
 	return self.db:select(sql, true)
 end
-function Model:find_by()
+function Model:find(kv)
+	local kvs = {}
+	for k, v in pairs(kv) do
+		table.insert(kvs, k.."='"..v.."'")
+	end
+	local sql = string.format("select * from %s where %s", self.table, table.concat(kvs, ' and '))
+	p("[sql]", sql)
+	return self.db:run(sql)
 end
 function Model:where()
 end

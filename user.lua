@@ -29,3 +29,9 @@ end
 
 print("------------------------ User:all")
 p(User:all())
+
+print("------------------------ User:find")
+p(User:find({id=1}))
+p(User:find({id=4}))
+p(User:find({name="Jose das Couves"}))
+p(User:find({name="Jose das Couves",email="jose@couves.com"}))
