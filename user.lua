@@ -29,12 +29,16 @@ end
 print("------------------------ User:all")
 p(User:all())
 
-print("------------------------ User:find")
+print("------------------------ User:find(1)")
 p(User:find(1))
+print("------------------------ User:find(4)")
 p(User:find(4))
 
-print("------------------------ User:where")
+print("------------------------ User:where({id=1})")
 p(User:where({id=1}))
+print("------------------------ User:where({id=4})")
 p(User:where({id=4}))
+print("------------------------ User:where({name="Jose das Couves"})")
 p(User:where({name="Jose das Couves"}))
+print("------------------------ User:where(where({name="Jose das Couves",email="jose@couves.com"})")
 p(User:where({name="Jose das Couves",email="jose@couves.com"}))
