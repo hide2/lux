@@ -1,7 +1,6 @@
 local Model = require("./lux/model").Model
 
 local UserModel = Model:extend()
-
 local User = UserModel:new("sqlite3", "/tmp/test.sqlite3")
 print("------------------------ User:new")
 p(User)
