@@ -8,8 +8,8 @@ p(User.table)
 p(User.db)
 
 -- prepare db
-db:run"DROP TABLE user"
-db:run[[
+User.db:run"DROP TABLE user"
+User.db:run[[
   CREATE TABLE user(
     id  INT PRIMARY KEY,
     name  VARCHAR(50),
