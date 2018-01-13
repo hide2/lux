@@ -19,7 +19,7 @@ function Model:save(row)
 		table.insert(ks, k)
 		table.insert(vs, v)
 	end
-	local sql = string.format("insert into %s(%s) values(%s)", self.table, table.concat(ks, ','), table.concat(vs, ''))
+	local sql = string.format("insert into %s(%s) values(%s)", self.table, table.concat(ks, ','), table.concat(vs, ','))
 	p("[sql]", sql)
 	self.db:run(sql)
 end
