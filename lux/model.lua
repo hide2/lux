@@ -12,9 +12,16 @@ function Model:initialize(driver, ...)
 	self.table = table
 end
 
-function Model:_create()
-end
-function Model:save()
+function Model:save(row)
+	local ks = {}
+	local vs = {}
+	for k, v in pairs(row) do
+		table.insert(ks, k)
+		table.insert(vs, v)
+	end
+	local sql = string.format("insert into %s(%s) values(%s)", self.table, table.concat(ks, ','), table.concat(vs, ''))
+	p("[sql]", sql)
+	self.db:run(sql)
 end
 function Model:all()
 end

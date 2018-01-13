@@ -1,8 +1,31 @@
 local Model = require("./lux/model").Model
 
-print("------------------------")
-local User = Model:extend()
+local UserModel = Model:extend()
 
-local u = User:new("sqlite3", "/tmp/test.sqlite3")
-p(u.table)
-p(u.db)
+local User = UserModel:new("sqlite3", "/tmp/test.sqlite3")
+print("------------------------ User:new")
+p(User.table)
+p(User.db)
+
+-- prepare db
+db:run"DROP TABLE user"
+db:run[[
+  CREATE TABLE user(
+    id  INT PRIMARY KEY,
+    name  VARCHAR(50),
+    email VARCHAR(50)
+  )
+]]
+local list = {
+	{ id=1, name="Jose das Couves", email="jose@couves.com", },
+	{ id=2, name="Manoel Joaquim", email="manoel.joaquim@cafundo.com", },
+	{ id=3, name="Maria das Dores", email="maria@dores.com", },
+}
+
+print("------------------------ User:save")
+for i, p in pairs (list) do
+	User:save({id=p.id, name=p.name, email=p.email})
+end
+
+print("------------------------ User:all")
+p(User:all())
