@@ -17,8 +17,8 @@ User.db:run[[
 ]]
 local list = {
 	{ id=1, name="Jose das Couves", email="jose@couves.com", },
-	{ id=2, name="Manoel Joaquim", email="manoel.joaquim@cafundo.com", },
-	{ id=3, name="Maria das Dores", email="maria@dores.com", },
+	{ id=2, name="犀利哥", email="manoel.joaquim@cafundo.com", },
+	{ id=3, name="犀利哥", email="maria@dores.com", },
 }
 
 print("------------------------ User:save")
@@ -34,7 +34,7 @@ p(User:find(1))
 print("------------------------ User:find(4)")
 p(User:find(4))
 
-print("------------------------ User:where({name='Jose das Couves'})")
-p(User:where({name='Jose das Couves'}))
-print("------------------------ User:where(where({name='Jose das Couves',email='jose@couves.com'})")
+print("------------------------ User:where({name='犀利哥'})")
+p(User:where({name='犀利哥'}))
+print("------------------------ User:where(where({name='犀利哥',email='maria@dores.com'})")
 p(User:where({name='Jose das Couves',email='jose@couves.com'}))
