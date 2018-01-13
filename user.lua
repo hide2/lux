@@ -38,3 +38,8 @@ print("------------------------ User:where({name='Jack'})")
 p(User:where({name='Jack'}))
 print("------------------------ User:where(where({name='Jack',email='maria@dores.com'})")
 p(User:where({name='Jack',email='maria@dores.com'}))
+
+print("------------------------ User:update({name='Jack2'},{email='maria@dores.com'})")
+p(User:update({name='Jack2'},{email='maria@dores.com'}))
+print("------------------------ User:where({name='Jack2'})")
+p(User:where({name='Jack2'}))

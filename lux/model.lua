@@ -42,7 +42,18 @@ function Model:where(kv)
 	p("[sql]", sql)
 	return self.db:select(sql, true)
 end
-function Model:update()
+function Model:update(kv, wkv)
+	local kvs = {}
+	for k, v in pairs(kv) do
+		table.insert(kvs, k.."='"..v.."'")
+	end
+	local wkvs = {}
+	for k, v in pairs(wkv) do
+		table.insert(wkvs, k.."='"..v.."'")
+	end
+	local sql = string.format("update %s set %s where %s", self.table, table.concat(kvs, ','), table.concat(wkvs, ' and '))
+	p("[sql]", sql)
+	return self.db:run(sql)
 end
 function Model:destroy()
 end
