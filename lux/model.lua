@@ -1,18 +1,15 @@
--- http://guides.rubyonrails.org/active_record_basics.html
 local splitPath = require('pathjoin').splitPath
-
+local DB = require('./db').DB
 local Object = require('core').Object
 
 local Model = Object:extend()
 
-function Model:initialize()
-	p(splitPath(debug.getinfo(3).source))
+function Model:initialize(driver, ...)
+	self.db = DB:new(driver, ...)
 	local s = splitPath(debug.getinfo(3).source)
 	local file = s[#s]
-	p(file)
 	local table = string.sub(file, 1, string.find(file, '.lua')-1)
-	self.table_name = table
-	p(self.table_name)
+	self.table = table
 end
 
 function Model:_create()
