@@ -31,7 +31,7 @@ end
 function Model:find(id)
 	local sql = string.format("select * from %s where id = %s", self.table, id)
 	p("[sql]", sql)
-	return self.db:select(sql)
+	return self.db:select(sql, true)
 end
 function Model:where(kv)
 	local kvs = {}
@@ -40,7 +40,7 @@ function Model:where(kv)
 	end
 	local sql = string.format("select * from %s where %s", self.table, table.concat(kvs, ' and '))
 	p("[sql]", sql)
-	return self.db:select(sql)
+	return self.db:select(sql, true)
 end
 function Model:update()
 end
