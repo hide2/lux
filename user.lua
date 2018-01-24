@@ -1,8 +1,8 @@
 local os = require('ffi').os
 local env = require('env')
 local tmpdir = os == 'Windows' and env.get('TMP') or '/tmp'
-local db = require("./luz/db").DB:new("sqlite3", tmpdir.."/test.sqlite3")
-local User = require("./luz/db").Model:extend():new(db)
+local db = require("./lux/db").DB:new("sqlite3", tmpdir.."/test.sqlite3")
+local User = require("./lux/db").Model:extend():new(db)
 
 -- prepare db
 User.db:run"DROP TABLE user"
